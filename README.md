@@ -12,5 +12,5 @@ For a more comprehensive view of my work and experiences, be sure to check out m
 
 Feel free to reach out if you have any questions or would like to collaborate on a project. Thanks for stopping by!
 
-Best regards,
+
 Luis
