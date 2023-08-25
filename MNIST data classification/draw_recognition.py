@@ -14,10 +14,10 @@ class DigitRecognizerApp:
         self.canvas = tk.Canvas(root, width=280, height=280, bg="white")
         self.canvas.pack()
 
-        self.button_clear = tk.Button(root, text="Erase", command=self.clear_canvas)
+        self.button_clear = tk.Button(root, text="Borrar", command=self.clear_canvas)
         self.button_clear.pack()
 
-        self.button_recognize = tk.Button(root, text="Recognize", command=self.recognize_digit)
+        self.button_recognize = tk.Button(root, text="Reconocer", command=self.recognize_digit)
         self.button_recognize.pack()
 
         self.label_result = tk.Label(root, text="")
@@ -50,7 +50,7 @@ class DigitRecognizerApp:
         if self.drawing:
             x = event.x
             y = event.y
-            self.canvas.create_line(self.last_x, self.last_y, x, y, fill="black", width=10)
+            self.canvas.create_line(self.last_x, self.last_y, x, y, fill="black", width=10, capstyle=tk.ROUND, smooth=tk.TRUE)
             self.last_x = x
             self.last_y = y
             self.update_image_data(x, y)
