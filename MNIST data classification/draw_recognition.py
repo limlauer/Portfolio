@@ -1,6 +1,7 @@
 import tkinter as tk
 import numpy as np
 import tensorflow as tf
+import webbrowser
 
 # Cargar el modelo entrenado
 model = tf.keras.models.load_model('modelo')
@@ -18,6 +19,17 @@ class DigitRecognizerApp:
 
         self.button_recognize = tk.Button(root, text="Recognize", command=self.recognize_digit)
         self.button_recognize.pack()
+
+        self.label_result = tk.Label(root, text="")
+        self.label_result.pack()
+
+        self.link_portfolio = tk.Label(root, text="My portfolio (Web)", fg="blue", cursor="hand2")
+        self.link_portfolio.pack()
+        self.link_portfolio.bind("<Button-1>", self.open_portfolio)
+
+        self.link_portfolio = tk.Label(root, text="Hire me! (Linkedin)", fg="blue", cursor="hand2")
+        self.link_portfolio.pack()
+        self.link_portfolio.bind("<Button-1>", self.open_linkedin)
 
         self.drawing = False
         self.last_x = 0
@@ -61,6 +73,12 @@ class DigitRecognizerApp:
         prediction = model.predict(scaled_image)
         predicted_digit = np.argmax(prediction)
         print("Predicted digit:", predicted_digit)
+
+    def open_portfolio(self, event):
+        webbrowser.open("http://limlauer.github.io")
+        
+    def open_linkedin(self, event):
+        webbrowser.open("https://www.linkedin.com/in/luis-imlauer/")
 
 root = tk.Tk()
 app = DigitRecognizerApp(root)
