@@ -72,6 +72,7 @@ class DigitRecognizerApp:
         scaled_image = np.expand_dims(scaled_image, axis=0)
         prediction = model.predict(scaled_image)
         predicted_digit = np.argmax(prediction)
+        self.label_result.config(text= predicted_digit)
         print("Predicted digit:", predicted_digit)
 
     def open_portfolio(self, event):
